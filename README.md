@@ -40,10 +40,10 @@ We made the decision to use solution based on [Google Cloud](https://console.clo
 
 For the regularly polling of agentur and email, we use the Cllou Scheduler. 
 
-![Alt text](../img/Infrastruktur.jpg)
+![Alt text](./img/Infrastruktur.jpg)
 
 Color legend for picture:
-![Alt text](../img/Legend.jpg)
+![Alt text](./img/Legend.jpg)
 
 ## dashboard application
 
