@@ -81,6 +81,8 @@ Both producers are processing data in this microservice and take the data corres
 Pool E-Mail application is activated regulary from Cloud Scheduler CRON (6-trigged pool E-Mail). It could be for example for every 1 minutes set up. In this case the pool E-Mail application pull one fifth of users E-Mail. This way we reach that each E-Mail will be trigged with period of 5 minutes. The arrow (7-poll E-Mail) check the E-Mail and get back the relevant E-Mails, the amount of E-Mails to be fetched is based on a timestamp stored on a per user basis to make sure only new E-Mails are polled and checked.
 If the data from E-Mail are matching our filter criteria the data is pushed to Dataflow, which will create the unified dataset in BigQuery (8-to Dataflow).
 
+![Alt text](./img/Poll%20email%20application.jpg)
+
 ### data application
 
 This microservice has the similar function as pool E-Mail application. In this case the microservice is activated via (9-trigged poll agentur) Cloud Scheduler CRON but with 3 minutes period. This service will sync with all connected agency REST APIs to fetch latest data. This is build asynchronous. At the end of this process the data is pushed to Dataflow (10-to Dataflow) for further preparation to store it in BigQuery.
