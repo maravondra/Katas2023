@@ -23,6 +23,10 @@ https://miro.com/app/board/uXjVMmGZNIo=/?share_link_id=176333757297
 - Travel updates must be presented in the app within 5 minutes of generation by the source
 - Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec)
 
+
+
+<br/><br/>
+
 - must integrate seamlessly with existing travel systems (i.e, SABRE, APOLLO)
 - Must integrate with preferred travel agency for quick problem resolution (help me!)
 - must work internationally
