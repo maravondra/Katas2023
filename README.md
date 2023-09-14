@@ -38,7 +38,7 @@ Filter and whitelist certain emails
 - *__Market Leader Status__* establish the travel dashboard as a market leader in terms of user base and quality of service, becoming the go-to platform for travelers looking to plan their trips.
 
 
-## The Architecture
+## The proposed Architecture
 
 We made the decision to build a solution based on [Google Cloud](https://console.cloud.google.com/). 
 
