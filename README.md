@@ -52,7 +52,7 @@ We made the decision to build a solution based on [Google Cloud](https://console
 Our microservice oriented approach is utilizing various GCP services to maintain a good balance between cost and performance, allowing infinite scale while maintaining a scale to 0 option to save cost. The following services are covering the entire solution:
 * Cloud Run: Is hosting our container based microservices to cater for data pulling, collection of E-Mails, providing a REST API and creating Social Media ready data.
 * Dataflow: Provides Apache Beam pipelines for data cleaning and preparation, is utilized to bring all gathered data in the same format befor it is stored in our data warehouse.
-* BiqQuery: Is our data warehouse that allows sql-like querying for up to petabyte scale within Seconds or Minutes.
+* BigQuery: Is our data warehouse that allows sql-like querying for up to petabyte scale within Seconds or Minutes.
 * Vertex AI / Bigquery ML: Is utilized to find patterns in BigQuery: e.g. last February all flights of a specific airline where delayed, thus we recommend our users to choose another airline when traveling in February.
 * Looker Studio: Enterprise grade vizualisation tool with direct connection to bigquery allowing a visual representation of userdata and data inputs to manipulate data in the dataset.
 * Load Balancer: Highly available global resource for user oriented routing of requests to guarantee low latency and reduce traffic cost while serving data from the nearest POP.
@@ -68,7 +68,7 @@ Color legend for picture:
 
 ### dashboard application
 
-The dashboard application provides an REST API (orange arrow) to make data, stored in BiqQuery consumable. It's a bridge service between BiqQuery Data and Users / internal Marketing and Partners.
+The dashboard application provides an REST API (orange arrow) to make data, stored in BigQuery consumable. It's a bridge service between BigQuery Data and Users / internal Marketing and Partners.
 It also provides an interface to our social application.
 
 ### social application
@@ -79,7 +79,7 @@ Both producers are processing data in this microservice and take the data corres
 ### pool E-Mail application
 
 Pool E-Mail application is activated regulary from Cloud Scheduler CRON (6-trigged pool E-Mail). It could be for example for every 1 minutes set up. In this case the pool E-Mail application pull one fifth of users E-Mail. This way we reach that each E-Mail will be trigged with period of 5 minutes. The arrow (7-poll E-Mail) check the E-Mail and get back the relevant E-Mails, the amount of E-Mails to be fetched is based on a timestamp stored on a per user basis to make sure only new E-Mails are polled and checked.
-If the data from E-Mail are matching our filter criteria the data is pushed to Dataflow, which will create the unified dataset in Big Query. (8-to Dataflow)
+If the data from E-Mail are matching our filter criteria the data is pushed to Dataflow, which will create the unified dataset in Big Query (8-to Dataflow).
 
 ### data application
 
