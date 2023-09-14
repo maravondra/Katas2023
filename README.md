@@ -57,36 +57,26 @@ Our microservice oriented approach is utilizing various GCP services to maintain
 Color legend for picture:
 ![Alt text](./img/Legend.jpg)
 
+## Custom build microservices developed by Road Warrior
+
 ### dashboard application
 
-The dashboard application listen the Rest api call (orange arrow). If the call is registered this microservice take the matchin data from BigQuery (1-take data). and send it back
+The dashboard application provides an rest api (orange arrow) to make data, stored in Biq Query consumable. It's a bridge service between Biq Query Data and Users / internal Marketing and Partners.
 
-The another service is to share the data on social nets. It coul be also registerde via Rest API (orange arrow). If the request is registerd the microservice take the data from BigQuery (1-take data) and hand over the data to *social communication* service (arrow: 2-send to social).
+It also provides an interface to our social application.
 
 ### social application
 
-This microservice can be call from service dashboard (via REST API) or via Website. If the request is produce from website, the request registerd in social microservice (3-prepare data). If the request is produce via REST API the request is send from dashboard application (2-send to social).
+This microservice can be called from service dashboard (via REST API including Apps) or via Website. If the request is produced from website, the request registerd in social microservice (3-prepare data). If the request is produce via REST API the request is send from dashboard application (2-send to social).
 
-Both producer are processing in this microservice and take the data corresponding data from BigQuery (4-pull data for sharing). This data are modifide for sharing and publish in Cloud storage (5-save in storage).
+Both producers are processing data in this microservice and take the data corresponding data from BigQuery (4-pull data for sharing). This data is modified for sharing and publishing on social networks, this stored as publicly available static content in Cloud storage (5-save in storage).
 
 ### pool email application
 
-Pool email application is activated regulary from Cloud Scheduler CRON (6-trigged pool email). It could be for example for every 1 minutes set up. In this case the pool email application pull one fifth of users email. This way we reach that each email will be trigged with period of 5 minutes. The arrow (7-poll email) check the email and get back the relevant emails.
+Pool email application is activated regulary from Cloud Scheduler CRON (6-trigged pool email). It could be for example for every 1 minutes set up. In this case the pool email application pull one fifth of users email. This way we reach that each email will be trigged with period of 5 minutes. The arrow (7-poll email) check the email and get back the relevant emails, the amount of emails to be fetched is based on a timestamp stored on a per user basis to make sure only new emails are polled and checked.
 
-If the data from email are filter the data are moved to Dataflow, which will create the unified dataflow. (8-to dataflow)
+If the data from email are matching our filter criteria the data is pushed to Dataflow, which will create the unified dataset in Big Query. (8-to dataflow)
 
 ### data application
 
-This microservice has the similar function as pool email application. In this case the microservice is activeted via (9-trigged poll agentur) Cloud Scheduler CRON but with 3 minutes period. This service that ask all connected agentur API for the news. At the end of this process are the date take over to Dataflow (10-to dataflow).
-
-### Dataflow
-
-Service from google is responsible for save the unified data to BigQuery (11 - save data to BigQuery).
-
-### Website
-
-As we said, we would like to save the cost of our project. We don't want to develop any frontend site. We made the decision to use Looker. In tool we build dashboard on the base of modules from google. User will be comunicated via purple arrow. On the request from user will be data saved to BigQuery (12 - save data). 
-
-### Big Query
-
-On top of big query database is running VertexAI, which regulary modified the data in db.
+This microservice has the similar function as pool email application. In this case the microservice is activated via (9-trigged poll agentur) Cloud Scheduler CRON but with 3 minutes period. This service will sync with all connected agency APIs to fetch latest data. This is build asynchronous. At the end of this process the data is pushed to Dataflow (10-to dataflow) for further preparation to store it in Big Query.
