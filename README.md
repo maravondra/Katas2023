@@ -11,7 +11,7 @@ https://miro.com/app/board/uXjVMmGZNIo=/?share_link_id=176333757297
 ## Challenge Requirements
 
 - Poll email looking for travel-related email
-Filter and whitelist certain emails
+- Filter and whitelist certain emails
 - The system must interface with the agency’s existing airline, hotel, and car rental interface system to update travel details (delays, cancellations, updates, gate changes, etc.). Updates must be in the app within 5 minutes of an update (better than the competition)
 - Customers should be able to add, update, or delete existing reservations manually as well
 - Items in the dashboard should be able to be grouped by trip, and once the trip is complete, the items should automatically be removed from the dashboard.
@@ -23,13 +23,19 @@ Filter and whitelist certain emails
 - Travel updates must be presented in the app within 5 minutes of generation by the source
 - Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec)
 
+- must integrate seamlessly with existing travel systems (i.e, SABRE, APOLLO)
+- Must integrate with preferred travel agency for quick problem resolution (help me!)
+- must work internationally
+
+- users: 2 million active users/week and total users: 15 million (user accounts)
+  
 ## Business Requirements
 
 ### Short-Term Goals (0-2 years)
 
 - *__Develop MVP (Minimum Viable Product)__* Within the first year, create and launch a basic version of the travel dashboard that offers essential features, such as itinerary planning, real-time flight tracking, and local recommendations.
 
-- *__Feedback and Iteration__* Gather user feedback and data to continuously improve the dashboard's user experience and functionality. Implement regular updates and fixes based on this feedback
+- *__Feedback and Iteration__* Gather user feedback and data to continuously improve the dashboard's user experience and functionality. Implement regular updates and fixes based on this feedback.
 
 ### Long-Term Goals (3-5 years and beyond)
 
