@@ -22,8 +22,9 @@ https://miro.com/app/board/uXjVMmGZNIo=/?share_link_id=176333757297
 - Users must be able to access the system at all times (max 5 minutes per month of unplanned downtime)
 - Travel updates must be presented in the app within 5 minutes of generation by the source
 - Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec)
-<br/>
+
 ## additional context
+
 - must integrate seamlessly with existing travel systems (i.e, SABRE, APOLLO)
 - must integrate with preferred travel agency for quick problem resolution (help me!)
 - must work internationally
