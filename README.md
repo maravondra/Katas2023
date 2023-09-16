@@ -71,6 +71,8 @@ Color legend for picture:
 The dashboard application provides an REST API (orange arrow) to make data, stored in BigQuery consumable. It's a bridge service between BigQuery Data and Users / internal Marketing and Partners.
 It also provides an interface to our social application.
 
+![Alt text](../../../../../C:/Users/A200130314/NodeProjects/Katas2023/img/Dashboard%20application.jpg)
+
 ### social application
 
 This microservice can be called from service dashboard (via REST API including Apps) or via Website. If the request is produced from Website, the request registerd in social microservice (3-prepare data). If the request is produce via REST API the request is send from dashboard application (2-send to Social Media).
