@@ -71,7 +71,7 @@ Color legend for picture:
 The dashboard application provides an REST API (orange arrow) to make data, stored in BigQuery consumable. It's a bridge service between BigQuery Data and Users / internal Marketing and Partners.
 It also provides an interface to our social application.
 
-![Alt text](../../../../../C:/Users/A200130314/NodeProjects/Katas2023/img/Dashboard%20application.jpg)
+![Alt text](./img/Dashboard%20application.jpg)
 
 ### social application
 
